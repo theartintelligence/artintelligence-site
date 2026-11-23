@@ -400,8 +400,16 @@ def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
-    shutil.copytree(ROOT / "assets", OUT / "assets")
-    shutil.copytree(ROOT / "fonts", OUT / "fonts")
+    for folder, exts in (("assets", {".css", ".png", ".jpg", ".jpeg", ".svg"}),
+                         ("fonts", {".woff2", ".woff"})):
+        src = ROOT / folder
+        if src.exists():
+            shutil.copytree(src, OUT / folder)
+        else:  # files uploaded without their folder: gather them from the top level
+            (OUT / folder).mkdir()
+            for f in ROOT.iterdir():
+                if f.is_file() and f.suffix.lower() in exts:
+                    shutil.copy(f, OUT / folder / f.name)
     for name, page in [("index.html", home(posts)), ("services.html", services()),
                        ("about.html", about()), ("writing.html", writing(posts))]:
         (OUT / name).write_text(page, encoding="utf-8")
