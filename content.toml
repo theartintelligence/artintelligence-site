@@ -1,0 +1,163 @@
+# ------------------------------------------------------------------
+#  Art Intelligence website: all copy lives in this file.
+#
+#  How to edit
+#  - Change any text between the quotation marks, then save.
+#  - Words wrapped in **double asterisks** are set in the heavier weight.
+#  - Lines starting with # are notes and are ignored.
+#  - Lists use square brackets; keep the commas between items.
+#  - Substack posts are fetched automatically: you never need to add them here.
+# ------------------------------------------------------------------
+
+[site]
+name = "Art Intelligence"
+booking_url = "https://calendar.app.google/Sv4Q4S2wT8RcnvKy9"
+email = "alice@artintelligence.io"
+substack = "https://theartintelligence.substack.com/"
+instagram = "https://www.instagram.com/artintelligence__/"
+instagram_handle = "@artintelligence__"
+linkedin = "https://www.linkedin.com/in/aliceacland/"
+copyright = "© 2026 Art Intelligence, a UK limited company. Vienna and London."
+description = "Art Intelligence audits, implements and trains staff on AI and software tools for galleries, museums and foundations."
+
+[footer]
+heading = "The first call is 30 minutes and free of charge."
+
+# ------------------------------------------------------------------
+[home]
+label = "Art Intelligence"
+headline = "AI and software implementation for **galleries, museums and foundations.**"
+
+experience_label = "Experience at"
+experience = [
+  "Hayward Gallery", "Victoria and Albert Museum", "De Morgan Foundation",
+  "Galerie Max Hetzler", "Galerie Kandlhofer", "Thomas Gibson Fine Art",
+  "Agency Gallery", "Matthew Upham Antiques",
+]
+
+consultancy_heading = "An audit of how your organisation works, then implementation with your staff."
+stages = [
+  ["Map", "Workflows, systems, tools and data."],
+  ["Choose", "Tools compared on cost, security and upkeep."],
+  ["Build", "Configuration, automations and data clean-up."],
+  ["Embed", "Procedures, training and a six-week review."],
+]
+
+also = [
+  ["Workshops and training", "From a lunchtime talk to a programme with a six-week follow-up.", "Formats", "services.html#workshops"],
+  ["AI policy and governance", "A written AI use policy for your team to sign off.", "What it covers", "services.html#policy"],
+]
+
+writing_heading = "The Art Intelligence, on Substack."
+writing_count = 4
+
+founder_heading = "Alice Acland"
+founder_text = "Ten years in public institutions and commercial galleries in London and Vienna. Founded Art Intelligence in early 2026."
+
+# The numbered list inside the circle at the top of the home page
+[[services_index]]
+title = "Consultancy"
+link = "services.html#consultancy"
+[[services_index]]
+title = "Workshops and training"
+link = "services.html#workshops"
+[[services_index]]
+title = "AI policy and governance"
+link = "services.html#policy"
+[[services_index]]
+title = "Prompt guide"
+link = "services.html#prompt-guide"
+[[services_index]]
+title = "AI search visibility"
+link = "services.html#more"
+[[services_index]]
+title = "One-hour consultation"
+link = "services.html#more"
+
+# ------------------------------------------------------------------
+[services]
+consultancy_heading = "An audit on its own, or an audit followed by implementation."
+consultancy_intro = "The audit can cover a single workflow, such as post-sale, client management or shipping, or every system and process in the organisation."
+
+option_one_title = "Audit"
+option_one = [
+  ["Delivers", "A map of how the organisation works, including its systems, tools and data, and an analysis of where time and data are lost"],
+  ["Duration", "3 to 4 weeks"],
+]
+option_two_title = "Audit and implementation"
+option_two = [
+  ["Delivers", "The audit, a sequenced roadmap, and hands-on implementation with your staff"],
+  ["Duration", "3 to 4 weeks audit, then from 6 weeks delivery"],
+  ["Note", "Third-party software, subscriptions and bespoke development are billed separately"],
+]
+
+stages_detail = [
+  ["Map", ["Interviews with staff in each team", "A map of workflows, systems, tools and where data is kept", "Where time is lost to repeated manual tasks", "Information held by only one member of staff", "Confidential client and financial data in unsecured tools"]],
+  ["Choose", ["Art-market platforms evaluated alongside general AI tools", "Comparison on cost, data security and maintenance", "Software already paid for and under-used", "A sequenced roadmap: adopt, defer or leave alone"]],
+  ["Build", ["Tool configuration and software procurement", "Records cleaned and centralised in one shared system", "Automations and AI agents for recurring tasks", "Prompt libraries for specific workflows", "Bespoke development where no existing tool fits"]],
+  ["Embed", ["Written procedures for each new process", "Training for the staff who will run them", "Internal champions to keep the work going", "A follow-up review after six weeks"]],
+]
+
+tools = "Art-market platforms including Artlogic, Arternal, Arcarta, Artscapy and ArtSVP. General tools including Claude, Gemini, NotebookLM, Perplexity, Notion, Asana, n8n and Retool."
+
+workshops_heading = "Training built around the tools your staff already use."
+workshops = [
+  ["Talks", "An informal session on a live question for your team."],
+  ["Single workshops", "One practical subject, such as prompting or using Copilot for correspondence."],
+  ["Programmes", "Two workshops and a follow-up six weeks later, in a Core or Bespoke version."],
+]
+
+policy_heading = "A written policy on how your staff use AI, ready for sign-off."
+policy = [
+  ["Covers", "Approved tools, use of client, collector and artist data, attribution, and how new tools are approved"],
+  ["Regulation", "What the EU AI Act asks of organisations that use AI tools"],
+  ["Includes", "The policy document and a session with staff"],
+]
+
+prompt_guide_heading = "A prompt guide for commercial galleries."
+prompt_guide_text = "Tested prompts for recurring gallery tasks, such as extracting every deadline from an art fair's exhibitor paperwork. Coming soon."
+prompt_guide_link_text = "Register interest by email"
+# Replace with the shop link when the guide is on sale:
+prompt_guide_link = "mailto:alice@artintelligence.io?subject=Prompt%20guide"
+
+also = [
+  ["AI search visibility", "A review of how your organisation appears in AI answers and search results, with recommendations."],
+  ["One-hour consultation", "A working session on a tool or implementation question, with a written summary and action points."],
+]
+
+# ------------------------------------------------------------------
+[about]
+headline = "Alice Acland, **founder.**"
+intro = "I worked for ten years in public institutions and commercial galleries in London and Vienna, in curatorial and commercial roles, before founding Art Intelligence in early 2026."
+paragraphs = [
+  "I set up the consultancy because the tools available to arts organisations have multiplied faster than their ability to evaluate them. My work is to establish where AI and software are useful in a specific organisation, where they are not, and to put the useful parts into practice with the people who will use them.",
+  "I deliver workshops on AI tools for arts professionals, and run my own business on the kind of systems I recommend: a Notion workspace, Gmail automations and an automated daily briefing.",
+]
+cv = [
+  ["Public institutions", "Hayward Gallery, Victoria and Albert Museum, De Morgan Foundation"],
+  ["Galleries and dealers", "Galerie Max Hetzler, Galerie Kandlhofer, Thomas Gibson Fine Art, Agency Gallery, Matthew Upham Antiques"],
+  ["Education", "MA Curating the Art Museum, The Courtauld. BA History of Art, First Class, University of Leeds"],
+  ["Based", "Vienna and London"],
+]
+example_heading = "An automated morning briefing."
+example_text = "Each morning an AI agent searches for new stories on AI, technology and the art market, summarises each with its source, and drafts social media posts for review. Nothing is published automatically."
+example_link = "https://theartintelligence.substack.com/p/how-to-set-up-a-personalised-daily"
+principles_heading = "Three working principles."
+principles = [
+  ["Specific to each organisation", "Recommendations start from how your organisation works now. There is no standard package of tools."],
+  ["Defined points of use", "AI is useful at specific, defined points in a workflow. It does not replace the judgement, relationships and expertise of your staff."],
+  ["Clear about limits", "Some tools create more work than they save. Where that is the case, the recommendation is not to adopt them."],
+]
+
+# ------------------------------------------------------------------
+[writing]
+headline = "The Art Intelligence, **on Substack.**"
+intro = "Guides for arts professionals, analysis of industry reports and products, and interviews with people building and using these tools."
+# Posts are pulled from Substack automatically every morning.
+# Any post whose title contains one of these phrases is left off the website:
+exclude = ["Field Notes", "I was interviewed", "Announcing"]
+max_posts = 12
+
+appearances = [
+  ["Podcast, Sep 2026", "The Bigger Picture Podcast, with Riah Prior", "https://theartintelligence.substack.com/p/i-was-interviewed-on-a-podcast"],
+]

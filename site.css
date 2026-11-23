@@ -1,0 +1,313 @@
+/* Art Intelligence — site styles, built from the Core Branding and Brand Applications frames in Figma.
+   Rules carried over: flat colour panels on Canvas, no decorative lines, Valley Sans set large and light
+   at 88–98% leading, Sorts Mill Goudy for reading and contents lists, sentence-case labels followed by a dot,
+   2pt outlined CTA, circular portrait beside a solid Mahogany circle. */
+
+@font-face { font-family: "Valley Sans"; src: url("../fonts/ValleySans-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Valley Sans"; src: url("../fonts/ValleySans-Italic-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+
+:root {
+  --mahogany: #450A04;
+  --flame: #FF3A01;
+  --cloud: #AFC7EB;
+  --canvas: #FAF7F4;
+  --carbon: #191919;
+  --sans: "Valley Sans", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Sorts Mill Goudy", "Goudy Old Style", Garamond, Georgia, serif;
+  --g: clamp(20px, 3vw, 44px);          /* page gutter, also the inset around colour panels */
+  --max: 1440px;
+  --space: clamp(96px, 12vw, 184px);    /* vertical rhythm between sections */
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--canvas); color: var(--carbon); font-family: var(--serif); font-size: clamp(1.2rem, 1.45vw, 1.45rem); line-height: 1.18; letter-spacing: -0.02em; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--flame); outline-offset: 4px; }
+h1, h2, h3, h4, p, ol, ul, dl, dd { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+
+/* Type scale: four sizes and nothing else */
+.t-display { font-family: var(--sans); font-weight: 300; font-size: clamp(2.8rem, 7vw, 7.25rem); line-height: 0.88; letter-spacing: -0.01em; text-wrap: balance; }
+.t-sub { font-family: var(--sans); font-weight: 300; font-size: clamp(1.75rem, 3.2vw, 3rem); line-height: 0.98; letter-spacing: 0; text-wrap: balance; }
+.t-list { font-family: var(--serif); font-size: clamp(1.6rem, 2.7vw, 2.6rem); line-height: 1.05; letter-spacing: -0.03em; }
+.t-detail { font-family: var(--sans); font-size: 0.875rem; line-height: 1.25; letter-spacing: -0.02em; }
+.t-display strong, .t-sub strong { font-weight: 500; }
+.muted { opacity: 0.62; }
+
+.label { display: inline-flex; align-items: center; gap: 9px; }
+.label::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mahogany); flex: none; }
+.dark .label::after { background: var(--canvas); }
+
+.cta { display: inline-block; font-family: var(--sans); font-weight: 300; font-size: clamp(1.1rem, 1.35vw, 1.3rem); letter-spacing: -0.04em; line-height: 1; text-decoration: none; padding: 0.45em 0.55em 0.5em; border: 2px solid currentColor; transition: background-color .2s, color .2s; white-space: nowrap; }
+.cta:hover { background: var(--carbon); border-color: var(--carbon); color: var(--canvas); }
+.dark .cta:hover { background: var(--canvas); border-color: var(--canvas); color: var(--carbon); }
+.link { text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+.link:hover, .nav a:hover, .list a:hover .t { text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+
+/* Layout: a 12-column grid. Labels sit in the first four columns, content in the remaining eight. */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--g); }
+.row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--g); row-gap: clamp(28px, 3vw, 44px); }
+.c-label { grid-column: 1 / span 4; align-self: start; }
+.c-main { grid-column: 5 / -1; }
+.c-half { grid-column: span 6; }
+.c-third { grid-column: span 4; }
+@media (max-width: 860px) { .c-label, .c-main, .c-half, .c-third { grid-column: 1 / -1; } }
+.section { padding: var(--space) 0 0; }
+.section:last-of-type { padding-bottom: var(--space); }
+.stack { display: grid; gap: clamp(28px, 3vw, 44px); align-content: start; }
+.measure { max-width: 30em; }
+
+/* Colour panels: inset from the page edge, like the frames in the brand file */
+.panel { margin: 0 var(--g); padding: clamp(28px, 4vw, 64px); }
+.panel.mahogany { background: var(--mahogany); color: var(--canvas); }
+.panel.cloud { background: var(--cloud); }
+.panel.carbon { background: var(--carbon); color: var(--canvas); }
+.panel .wrap { padding: 0; }
+
+/* Header */
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: clamp(18px, 2vw, 28px); padding-bottom: clamp(18px, 2vw, 28px); }
+.site-header .logo img { width: clamp(118px, 10vw, 150px); height: auto; }
+.nav { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 36px); }
+.nav a { text-decoration: none; }
+.nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+.nav .cta { font-size: 0.95rem; padding: 0.42em 0.55em 0.48em; }
+@media (max-width: 760px) { .nav a:not(.cta) { display: none; } }
+
+/* Hero panel */
+.hero { min-height: clamp(520px, 48vw, 760px); display: grid; grid-template-rows: auto 1fr auto; }
+.hero .bottom { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--g); align-items: end; padding-top: clamp(40px, 5vw, 72px); }
+.hero .bottom > .c-main { display: grid; gap: clamp(24px, 3vw, 40px); }
+.hero h1 { align-self: end; padding-top: clamp(64px, 8vw, 140px); max-width: 15ch; }
+@media (max-width: 860px) { .hero .bottom { grid-template-columns: 1fr; row-gap: 24px; } }
+
+/* Page intro (inner pages) */
+.intro-page { padding-top: clamp(56px, 8vw, 120px); }
+.intro-page h1 { max-width: 16ch; }
+
+/* Contents-style numbered list, as on the deck's contents slide */
+.list li + li { margin-top: 0.12em; }
+.list a { text-decoration: none; display: inline; }
+.list .n { font-variant-numeric: tabular-nums; margin-right: 0.28em; }
+
+/* Definition rows without rules */
+.facts { display: grid; gap: 16px; }
+.facts div { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 16px; }
+.facts dt { padding-top: 0.25em; }
+@media (max-width: 520px) { .facts div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Service blocks */
+.svc { display: grid; gap: 18px; align-content: start; }
+.svc h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 2.7vw, 2.6rem); line-height: 1.05; letter-spacing: -0.03em; }
+.svc ul li + li { margin-top: 0.5em; }
+.svc ul li { padding-left: 1.1em; position: relative; }
+.svc ul li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.5; }
+
+/* Steps (worked example) */
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--g); }
+.steps li { display: grid; gap: 12px; align-content: start; }
+.steps h3 { font-family: var(--sans); font-weight: 400; font-size: clamp(1.2rem, 1.5vw, 1.45rem); letter-spacing: -0.02em; line-height: 1; }
+.steps p { font-size: clamp(1.05rem, 1.15vw, 1.15rem); }
+@media (max-width: 1000px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+/* Writing list */
+.posts li + li { margin-top: clamp(22px, 2.4vw, 34px); }
+.posts a { text-decoration: none; display: grid; gap: 6px; }
+.posts a:hover .t { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+.posts .t { font-size: clamp(1.4rem, 2vw, 1.9rem); line-height: 1.08; letter-spacing: -0.03em; }
+
+/* Portrait pair */
+.pair { display: flex; gap: clamp(10px, 1.2vw, 18px); max-width: 520px; }
+.pair span, .pair img { width: 50%; aspect-ratio: 1; border-radius: 50%; }
+.pair span { background: var(--mahogany); }
+.pair img { object-fit: cover; }
+
+/* Footer panel: the Carbon slide */
+.site-footer { margin-top: 0; padding-bottom: var(--g); }
+.site-footer .panel { display: grid; gap: clamp(64px, 9vw, 140px); }
+.site-footer .top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--g); row-gap: 32px; align-items: end; }
+.site-footer .mark { grid-column: 1 / span 6; font-family: var(--sans); font-weight: 400; font-size: clamp(4rem, 11vw, 10rem); line-height: 0.88; }
+.site-footer .contact { grid-column: 7 / -1; display: grid; gap: 22px; justify-items: start; }
+.site-footer .bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+.site-footer .bottom nav { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.site-footer .bottom a { text-decoration: none; }
+.site-footer .bottom a:hover { text-decoration: underline; text-underline-offset: 0.22em; }
+@media (max-width: 860px) { .site-footer .mark, .site-footer .contact { grid-column: 1 / -1; } }
+
+/* Floating navigation bar */
+.site-header { position: sticky; top: 12px; z-index: 50; padding: 12px var(--g) 0; }
+.site-header .bar { max-width: var(--max); margin: 0 auto; background: var(--carbon); color: var(--canvas); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px clamp(16px, 2vw, 28px); }
+.site-header .logo img { width: clamp(104px, 8.5vw, 128px); height: auto; }
+.site-header .nav .cta:hover { background: var(--canvas); border-color: var(--canvas); color: var(--carbon); }
+.first { margin-top: 12px; }
+
+/* Hero with briefing sample */
+.hero2 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--g); row-gap: 48px; align-items: end; padding-top: clamp(72px, 9vw, 150px) !important; }
+.hero2 .copy { grid-column: 1 / span 7; display: grid; gap: clamp(24px, 3vw, 40px); }
+.hero2 .copy h1 { max-width: 13ch; }
+.hero2 .copy p { max-width: 26em; }
+.hero2 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+.hero2 .sample { grid-column: 9 / -1; }
+@media (max-width: 1000px) { .hero2 .copy, .hero2 .sample { grid-column: 1 / -1; } .hero2 .sample { max-width: 520px; } }
+.brief { background: var(--canvas); color: var(--carbon); padding: clamp(20px, 2vw, 28px); display: grid; gap: 18px; }
+.brief header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.brief h2 { font-family: var(--sans); font-weight: 400; font-size: 1.15rem; letter-spacing: -0.02em; }
+.brief ol { display: grid; gap: 14px; }
+.brief li { display: grid; gap: 3px; }
+.brief li p { font-size: 1.05rem; line-height: 1.18; }
+.brief footer { display: flex; justify-content: space-between; gap: 12px; }
+.tag { display: inline-flex; align-items: center; gap: 7px; }
+.tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--flame); }
+
+/* Names row */
+.names { display: flex; flex-wrap: wrap; gap: 6px clamp(18px, 2.4vw, 40px); font-size: clamp(1.25rem, 1.9vw, 1.8rem); letter-spacing: -0.03em; line-height: 1.2; }
+
+/* Who it's for */
+.who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--g); }
+.who > div { display: grid; gap: 16px; align-content: start; }
+.who p { font-size: clamp(1.05rem, 1.2vw, 1.2rem); }
+@media (max-width: 860px) { .who { grid-template-columns: 1fr; } }
+
+/* Services selector */
+.selector { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--g); row-gap: 32px; align-items: start; }
+.tabs { grid-column: 1 / span 5; display: grid; gap: 0.1em; }
+.tabs button { all: unset; cursor: pointer; font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 2.3rem); line-height: 1.1; letter-spacing: -0.03em; opacity: 0.38; transition: opacity .2s; }
+.tabs button .n { font-variant-numeric: tabular-nums; margin-right: 0.28em; }
+.tabs button[aria-selected="true"], .tabs button:hover { opacity: 1; }
+.tabs button:focus-visible { outline: 2px solid var(--flame); outline-offset: 4px; }
+.panes { grid-column: 7 / -1; }
+.pane { background: var(--cloud); padding: clamp(24px, 3vw, 44px); display: grid; gap: 22px; min-height: 100%; }
+.pane[hidden] { display: none; }
+.pane h3 { font-family: var(--sans); font-weight: 300; font-size: clamp(1.6rem, 2.4vw, 2.2rem); line-height: 0.98; }
+.pane .facts div { grid-template-columns: 7em minmax(0, 1fr); }
+@media (max-width: 900px) { .tabs, .panes { grid-column: 1 / -1; } }
+
+/* Engagement panels */
+.phases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.phases > div { padding: clamp(24px, 3vw, 40px); display: grid; grid-template-rows: auto 1fr auto; gap: 40px; min-height: clamp(280px, 26vw, 400px); }
+.phases .p1 { background: var(--cloud); }
+.phases .p2 { background: var(--mahogany); color: var(--canvas); }
+.phases .p3 { background: var(--carbon); color: var(--canvas); }
+.phases h3 { font-family: var(--sans); font-weight: 300; font-size: clamp(1.8rem, 2.8vw, 2.6rem); line-height: 0.95; align-self: end; }
+.phases p { font-size: clamp(1.05rem, 1.2vw, 1.2rem); }
+@media (max-width: 900px) { .phases { grid-template-columns: 1fr; } .phases > div { min-height: 0; } }
+
+/* Fixes */
+.hero2 .copy h1 { font-size: clamp(2.3rem, 5.6vw, 5.75rem); max-width: 14ch; overflow-wrap: break-word; }
+.site-footer.section { padding-bottom: var(--g); }
+@media (max-width: 1000px) { .hero2, .selector { grid-template-columns: 1fr; } .tabs, .panes { grid-column: 1 / -1; } }
+@media (max-width: 860px) { .row, .site-footer .top { grid-template-columns: 1fr; } .panel { padding: 24px 20px; } }
+
+/* Revision: light header, contents index in hero, consultancy stages */
+.site-header { position: sticky; top: 0; padding: 0; background: var(--canvas); }
+.site-header .bar { background: transparent; color: var(--carbon); padding: clamp(16px, 1.8vw, 24px) var(--g); }
+.site-header .nav .cta:hover { background: var(--carbon); border-color: var(--carbon); color: var(--canvas); }
+.site-header .logo img { width: clamp(112px, 9vw, 136px); }
+.first { margin-top: 0; }
+.index-list { display: grid; gap: 22px; align-self: end; }
+.index-list a { text-decoration: none; }
+.index-list a:hover .t { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+.options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--g); }
+.options .facts div { grid-template-columns: 6.5em minmax(0, 1fr); }
+@media (max-width: 760px) { .options { grid-template-columns: 1fr; } }
+.panel.flush { margin: 0; }
+.stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--g); }
+.stages > div { display: grid; gap: 12px; align-content: start; }
+.stages h3 { font-family: var(--sans); font-weight: 300; font-size: clamp(1.7rem, 2.4vw, 2.3rem); line-height: 0.95; margin-bottom: 6px; }
+.stages ul { display: grid; gap: 0.55em; }
+.stages li { font-size: clamp(1.02rem, 1.1vw, 1.12rem); line-height: 1.2; }
+@media (max-width: 1000px) { .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .stages { grid-template-columns: 1fr; } }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+html { scroll-padding-top: 90px; }
+.hero2 .index-list { grid-column: 8 / -1; }
+.index-list .t-list { font-size: clamp(1.4rem, 2.1vw, 2.1rem); }
+@media (max-width: 1000px) { .hero2 .index-list { grid-column: 1 / -1; } }
+
+/* ---------- Type hierarchy (final; overrides earlier rules) ----------
+   Display   h1            Valley Sans 300, 0.88 leading
+   Heading   h2            Valley Sans 300, 0.98 leading
+   Item      h3            Valley Sans 400, one size everywhere
+   Contents  numbered/linked lists (services index, post titles)  Goudy
+   Lead      body text under headings                             Goudy
+   Body      text inside items, lists and definition rows         Goudy, smaller
+   Detail    labels, dates, captions, nav                         Valley Sans 0.875rem
+*/
+:root {
+  --fs-h3: clamp(1.3rem, 1.65vw, 1.6rem);
+  --fs-contents: clamp(1.4rem, 2vw, 1.95rem);
+  --fs-lead: clamp(1.2rem, 1.4vw, 1.4rem);
+  --fs-body: clamp(1.02rem, 1.08vw, 1.12rem);
+}
+body { font-size: var(--fs-lead); line-height: 1.2; }
+.t-sub { font-size: clamp(1.75rem, 3vw, 2.85rem); }
+
+main h3, .who h3, .svc h3, .stages h3, .steps h3 {
+  font-family: var(--sans); font-weight: 400; font-size: var(--fs-h3);
+  line-height: 1.02; letter-spacing: -0.015em; margin: 0;
+}
+
+.t-list, .index-list .t-list, .posts .t, .names { font-size: var(--fs-contents); line-height: 1.1; letter-spacing: -0.03em; }
+.names { font-size: var(--fs-lead); line-height: 1.3; letter-spacing: -0.02em; }
+
+.who p, .svc p, .stages li, .steps p, .facts dd, .options .facts dd { font-size: var(--fs-body); line-height: 1.28; letter-spacing: -0.01em; }
+.measure, .hero2 .copy p, .contact p { font-size: var(--fs-lead); line-height: 1.22; }
+
+/* Consistent spacing inside items */
+.who > div, .svc, .stages > div { gap: 12px; }
+.stages ul { gap: 0.45em; }
+.stages > div > p { font-size: var(--fs-body); line-height: 1.28; }
+@media (max-width: 860px) { .c-main.who { grid-template-columns: 1fr !important; } }
+.site-footer .contact .t-sub { font-size: clamp(1.75rem, 3vw, 2.85rem); line-height: 0.98; }
+
+/* ---------- Colour application v2 ----------
+   Cloud leads. Mahogany and Flame appear as the brand's full-stop circle rather than as large fields.
+   The footer borrows the social avatar: Flame type on Mahogany. Flame otherwise only on hover. */
+.hero-dot { position: relative; overflow: hidden; }
+.hero-dot .wrap { position: relative; z-index: 1; }
+.bigdot { position: absolute; width: clamp(340px, 46vw, 760px); aspect-ratio: 1; border-radius: 50%; background: var(--mahogany); right: calc(clamp(340px, 46vw, 760px) * -0.22); bottom: calc(clamp(340px, 46vw, 760px) * -0.34); }
+.hero-dot .label::after { background: var(--flame); }
+.hero-dot .index-list { color: var(--canvas); position: relative; }
+.hero-dot .index-list .label::after { background: var(--canvas); }
+.hero-dot .cta:hover { background: var(--flame); border-color: var(--flame); color: var(--carbon); }
+@media (max-width: 1000px) {
+  .bigdot { width: 120vw; right: -40vw; bottom: -70vw; }
+  .hero-dot .index-list { color: var(--carbon); }
+  .hero-dot .index-list .label::after { background: var(--mahogany); }
+}
+
+.swatch { width: 22px; height: 22px; border-radius: 50%; display: block; margin-bottom: 6px; }
+.swatch.cloud { background: var(--cloud); }
+.swatch.flame { background: var(--flame); }
+.swatch.mahogany { background: var(--mahogany); }
+.swatch.carbon { background: var(--carbon); }
+.panel.cloud .swatch.cloud { background: var(--canvas); }
+
+.site-footer .panel.mahogany .mark { color: var(--flame); }
+.site-footer .panel.mahogany .contact .label::after { background: var(--flame); }
+.site-footer .cta:hover { background: var(--flame); border-color: var(--flame); color: var(--mahogany); }
+
+.cta:hover { background: var(--flame); border-color: var(--flame); color: var(--carbon); }
+.link:hover, .nav a:hover, .posts a:hover .t, .index-list a:hover .t { text-decoration-color: var(--flame); text-decoration-thickness: 2px; }
+/* The services index sits inside a full Mahogany circle: the brand's full stop, at scale */
+.hero-dot .index-list { grid-column: 8 / -1; justify-self: end; align-self: center; width: min(100%, 560px); aspect-ratio: 1; border-radius: 50%; background: var(--mahogany); color: var(--canvas); display: grid; align-content: center; justify-items: start; padding: 0 14%; gap: 18px; }
+.hero-dot .index-list .t-list { font-size: clamp(1.15rem, 1.7vw, 1.7rem); }
+.hero-dot .index-list .label::after { background: var(--flame); }
+.hero-dot .index-list a:hover .t { text-decoration-color: var(--flame); }
+@media (max-width: 1000px) {
+  .hero-dot .index-list { grid-column: 1 / -1; justify-self: center; width: min(100%, 440px); color: var(--canvas); padding: 0 16%; }
+  .hero-dot .index-list .label::after { background: var(--flame); }
+}
+
+/* Footer social links */
+.site-footer .follow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--g); }
+.site-footer .follow a { text-decoration: none; display: grid; gap: 6px; }
+.site-footer .follow .t-detail { opacity: 0.7; }
+.site-footer .follow .h { font-family: var(--serif); font-size: var(--fs-lead); letter-spacing: -0.02em; line-height: 1.15; overflow-wrap: anywhere; }
+.site-footer .follow a:hover .h { color: var(--flame); }
+.site-footer .panel { gap: clamp(48px, 6vw, 96px); }
+@media (max-width: 860px) { .site-footer .follow { grid-template-columns: 1fr 1fr; } }
