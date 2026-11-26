@@ -103,7 +103,6 @@ def footer():
     <div class="top">
       <p class="mark" aria-label="Art Intelligence">Art<br>INT.</p>
       <div class="contact">
-        <span class="t-detail label">Contact</span>
         <p class="t-sub">{t(C['footer']['heading'])}</p>
         <a class="cta" href="{attr(S['booking_url'])}">Book a call</a>
       </div>
@@ -133,16 +132,13 @@ def post_list(posts):
         f'<span class="t">{t(p["title"])}</span></a></li>' for p in posts)
 
 
-SWATCH = ["cloud", "flame", "mahogany", "carbon"]
-
-
 # ---------------------------------------------------------------- pages
 def home(posts):
     H = C["home"]
     idx = "\n".join(f'          <li><a href="{attr(s["link"])}"><span class="n">{i+1:02d}</span><span class="t">{t(s["title"])}</span></a></li>'
                     for i, s in enumerate(C["services_index"]))
     names = "".join(f"<span>{t(n)}</span>" for n in H["experience"])
-    stages = "\n".join(f'        <div><span class="swatch {SWATCH[i % 4]}" aria-hidden="true"></span><span class="t-detail">{i+1:02d}</span><h3>{t(a)}</h3><p>{t(b)}</p></div>'
+    stages = "\n".join(f'        <div><span class="t-detail">{i+1:02d}</span><h3>{t(a)}</h3><p>{t(b)}</p></div>'
                        for i, (a, b) in enumerate(H["stages"]))
     also = "\n".join(f'        <div class="svc"><h3>{t(a)}</h3><p>{t(b)}</p><a class="t-detail link" href="{attr(l)}">{t(lt)}</a></div>'
                      for a, b, lt, l in H["also"])
@@ -156,7 +152,6 @@ def home(posts):
         <div class="actions"><a class="cta" href="{attr(S['booking_url'])}">Book a call</a></div>
       </div>
       <nav class="sample index-list" aria-label="Services">
-        <span class="t-detail label">Services</span>
         <ol class="t-list list">
 {idx}
         </ol>
@@ -166,7 +161,7 @@ def home(posts):
 
   <section class="section">
     <div class="wrap row">
-      <span class="c-label t-detail label">{t(H['experience_label'])}</span>
+      <span class="c-label t-detail rowlabel">{t(H['experience_label'])}</span>
       <p class="c-main names">{names}</p>
     </div>
   </section>
@@ -174,7 +169,7 @@ def home(posts):
   <section class="section" aria-labelledby="con-h">
     <div class="wrap stack">
       <div class="row">
-        <span class="c-label t-detail label">Consultancy</span>
+        <div class="c-label"></div>
         <h2 class="c-main t-sub" id="con-h">{t(H['consultancy_heading'])}</h2>
       </div>
       <div class="stages">
@@ -186,7 +181,7 @@ def home(posts):
 
   <section class="section">
     <div class="wrap row">
-      <span class="c-label t-detail label">Also offered</span>
+      <span class="c-label t-detail rowlabel">Also offered</span>
       <div class="c-main options">
 {also}
       </div>
@@ -196,7 +191,6 @@ def home(posts):
   <section class="section" aria-labelledby="wr-h">
     <div class="wrap row">
       <div class="c-label stack" style="gap:20px">
-        <span class="t-detail label">Writing</span>
         <h2 class="t-sub" id="wr-h">{t(H['writing_heading'])}</h2>
         <a class="t-detail link" href="writing.html">All writing</a>
       </div>
@@ -210,7 +204,6 @@ def home(posts):
     <div class="wrap row" style="align-items:center">
       <div class="c-half"><div class="pair"><span aria-hidden="true"></span><img src="assets/portrait-square.jpg" alt="Alice Acland"></div></div>
       <div class="c-half stack" style="gap:24px">
-        <span class="t-detail label">Founder</span>
         <h2 class="t-sub" id="ab-h">{t(H['founder_heading'])}</h2>
         <p class="measure">{t(H['founder_text'])}</p>
         <a class="t-detail link" href="about.html">About Alice</a>
@@ -224,7 +217,7 @@ def home(posts):
 def services():
     V = C["services"]
     stages = "\n".join(
-        f'            <div><span class="swatch {SWATCH[i % 4]}" aria-hidden="true"></span><span class="t-detail">{i+1:02d}</span><h3>{t(n)}</h3><ul>'
+        f'            <div><span class="t-detail">{i+1:02d}</span><h3>{t(n)}</h3><ul>'
         + "".join(f"<li>{t(x)}</li>" for x in items) + "</ul></div>"
         for i, (n, items) in enumerate(V["stages_detail"]))
     ws = "".join(f"<div><h3>{t(a)}</h3><p>{t(b)}</p></div>" for a, b in V["workshops"])
@@ -233,15 +226,15 @@ def services():
 <main>
   <section class="intro-page">
     <div class="wrap row">
-      <span class="c-label t-detail label">Services</span>
-      <h1 class="c-main t-display">Services.</h1>
+      <div class="c-label"></div>
+      <h1 class="c-main t-display">{t(V['headline'])}</h1>
     </div>
   </section>
 
   <section class="section" id="consultancy" aria-labelledby="con-h">
     <div class="wrap stack">
       <div class="row">
-        <span class="c-label t-detail label">Consultancy</span>
+        <div class="c-label"></div>
         <div class="c-main stack" style="gap:20px">
           <h2 class="t-sub" id="con-h">{t(V['consultancy_heading'])}</h2>
           <p class="measure">{t(V['consultancy_intro'])}</p>
@@ -256,14 +249,14 @@ def services():
       </div>
       <div class="panel cloud flush">
         <div class="stack">
-          <span class="t-detail label">What the work involves</span>
+          <span class="t-detail rowlabel">What the work involves</span>
           <div class="stages">
 {stages}
           </div>
         </div>
       </div>
       <div class="row">
-        <span class="c-label t-detail label">Tools evaluated</span>
+        <span class="c-label t-detail rowlabel">Tools evaluated</span>
         <p class="c-main measure">{t(V['tools'])}</p>
       </div>
     </div>
@@ -272,7 +265,7 @@ def services():
   <section class="section" id="workshops" aria-labelledby="ws-h">
     <div class="wrap stack">
       <div class="row">
-        <span class="c-label t-detail label">Workshops and training</span>
+        <div class="c-label"></div>
         <h2 class="c-main t-sub" id="ws-h">{t(V['workshops_heading'])}</h2>
       </div>
       <div class="row"><div class="c-label"></div><div class="c-main who" style="grid-template-columns:repeat(3,minmax(0,1fr))">{ws}</div></div>
@@ -281,7 +274,7 @@ def services():
 
   <section class="section" id="policy" aria-labelledby="po-h">
     <div class="wrap row">
-      <span class="c-label t-detail label">AI policy and governance</span>
+      <div class="c-label"></div>
       <div class="c-main stack">
         <h2 class="t-sub" id="po-h">{t(V['policy_heading'])}</h2>
         {facts(V['policy'])}
@@ -291,7 +284,7 @@ def services():
 
   <section class="section" id="prompt-guide" aria-labelledby="pg-h">
     <div class="wrap row">
-      <span class="c-label t-detail label">Prompt guide</span>
+      <div class="c-label"></div>
       <div class="c-main stack" style="gap:20px">
         <h2 class="t-sub" id="pg-h">{t(V['prompt_guide_heading'])}</h2>
         <p class="measure">{t(V['prompt_guide_text'])}</p>
@@ -302,7 +295,7 @@ def services():
 
   <section class="section" id="more">
     <div class="wrap row">
-      <span class="c-label t-detail label">Also available</span>
+      <span class="c-label t-detail rowlabel">Also available</span>
       <div class="c-main options">{also}</div>
     </div>
   </section>
@@ -318,7 +311,7 @@ def about():
 <main>
   <section class="intro-page">
     <div class="wrap row">
-      <span class="c-label t-detail label">About</span>
+      <div class="c-label"></div>
       <h1 class="c-main t-display">{t(A['headline'])}</h1>
     </div>
   </section>
@@ -336,7 +329,7 @@ def about():
 
   <section class="section" aria-labelledby="ex-h">
     <div class="wrap row">
-      <span class="c-label t-detail label">Worked example</span>
+      <div class="c-label"></div>
       <div class="c-main stack" style="gap:20px">
         <h2 class="t-sub" id="ex-h">{t(A['example_heading'])}</h2>
         <p class="measure">{t(A['example_text'])}</p>
@@ -348,7 +341,7 @@ def about():
   <section class="section" aria-labelledby="hw-h">
     <div class="wrap stack">
       <div class="row">
-        <span class="c-label t-detail label">How I work</span>
+        <div class="c-label"></div>
         <h2 class="c-main t-sub" id="hw-h">{t(A['principles_heading'])}</h2>
       </div>
       <div class="who">{pr}</div>
@@ -366,7 +359,7 @@ def writing(posts):
 <main>
   <section class="intro-page">
     <div class="wrap row">
-      <span class="c-label t-detail label">Writing</span>
+      <div class="c-label"></div>
       <div class="c-main stack">
         <h1 class="t-display">{t(W['headline'])}</h1>
         <p class="measure">{t(W['intro'])}</p>
@@ -376,7 +369,7 @@ def writing(posts):
   </section>
   <section class="section">
     <div class="wrap row">
-      <span class="c-label t-detail label">Latest posts</span>
+      <span class="c-label t-detail rowlabel">Latest posts</span>
       <ul class="c-main posts">
 {post_list(posts)}
       </ul>
@@ -384,7 +377,7 @@ def writing(posts):
   </section>
   <section class="section">
     <div class="wrap row">
-      <span class="c-label t-detail label">Appearances</span>
+      <span class="c-label t-detail rowlabel">Appearances</span>
       <ul class="c-main posts">
 {app}
       </ul>
