@@ -48,7 +48,7 @@ also = [
   ["AI policy and governance", "A written AI use policy for your team to sign off.", "What it covers", "services.html#policy"],
 ]
 
-writing_heading = "The Art Intelligence, on Substack."
+writing_heading = "Recent writing from The Art Intelligence newsletter."
 writing_count = 4
 
 founder_heading = "Alice Acland"
@@ -76,6 +76,7 @@ link = "services.html#more"
 
 # ------------------------------------------------------------------
 [services]
+headline = "Consultancy, training and policy for arts organisations."
 consultancy_heading = "An audit on its own, or an audit followed by implementation."
 consultancy_intro = "The audit can cover a single workflow, such as post-sale, client management or shipping, or every system and process in the organisation."
 
@@ -127,7 +128,7 @@ also = [
 
 # ------------------------------------------------------------------
 [about]
-headline = "Alice Acland, **founder.**"
+headline = "**Alice Acland,** founder of Art Intelligence."
 intro = "I worked for ten years in public institutions and commercial galleries in London and Vienna, in curatorial and commercial roles, before founding Art Intelligence in early 2026."
 paragraphs = [
   "I set up the consultancy because the tools available to arts organisations have multiplied faster than their ability to evaluate them. My work is to establish where AI and software are useful in a specific organisation, where they are not, and to put the useful parts into practice with the people who will use them.",
@@ -142,7 +143,7 @@ cv = [
 example_heading = "An automated morning briefing."
 example_text = "Each morning an AI agent searches for new stories on AI, technology and the art market, summarises each with its source, and drafts social media posts for review. Nothing is published automatically."
 example_link = "https://theartintelligence.substack.com/p/how-to-set-up-a-personalised-daily"
-principles_heading = "Three working principles."
+principles_heading = "How the work is approached."
 principles = [
   ["Specific to each organisation", "Recommendations start from how your organisation works now. There is no standard package of tools."],
   ["Defined points of use", "AI is useful at specific, defined points in a workflow. It does not replace the judgement, relationships and expertise of your staff."],
@@ -151,7 +152,7 @@ principles = [
 
 # ------------------------------------------------------------------
 [writing]
-headline = "The Art Intelligence, **on Substack.**"
+headline = "Writing on AI, technology and the art market, published on Substack."
 intro = "Guides for arts professionals, analysis of industry reports and products, and interviews with people building and using these tools."
 # Posts are pulled from Substack automatically every morning.
 # Any post whose title contains one of these phrases is left off the website:
