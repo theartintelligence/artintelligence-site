@@ -38,6 +38,7 @@ ol, ul { list-style: none; }
 .t-display strong, .t-sub strong { font-weight: 500; }
 .muted { opacity: 0.62; }
 
+.rowlabel { display: block; }
 .label { display: inline-flex; align-items: center; gap: 9px; }
 .label::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mahogany); flex: none; }
 .dark .label::after { background: var(--canvas); }
@@ -55,7 +56,7 @@ ol, ul { list-style: none; }
 .c-main { grid-column: 5 / -1; }
 .c-half { grid-column: span 6; }
 .c-third { grid-column: span 4; }
-@media (max-width: 860px) { .c-label, .c-main, .c-half, .c-third { grid-column: 1 / -1; } }
+@media (max-width: 860px) { .c-label, .c-main, .c-half, .c-third { grid-column: 1 / -1; } .c-label:empty { display: none; } }
 .section { padding: var(--space) 0 0; }
 .section:last-of-type { padding-bottom: var(--space); }
 .stack { display: grid; gap: clamp(28px, 3vw, 44px); align-content: start; }
@@ -87,6 +88,7 @@ ol, ul { list-style: none; }
 /* Page intro (inner pages) */
 .intro-page { padding-top: clamp(56px, 8vw, 120px); }
 .intro-page h1 { max-width: 16ch; }
+.intro-page .c-main.t-display { max-width: 20ch; }
 
 /* Contents-style numbered list, as on the deck's contents slide */
 .list li + li { margin-top: 0.12em; }
@@ -279,13 +281,6 @@ main h3, .who h3, .svc h3, .stages h3, .steps h3 {
   .hero-dot .index-list { color: var(--carbon); }
   .hero-dot .index-list .label::after { background: var(--mahogany); }
 }
-
-.swatch { width: 22px; height: 22px; border-radius: 50%; display: block; margin-bottom: 6px; }
-.swatch.cloud { background: var(--cloud); }
-.swatch.flame { background: var(--flame); }
-.swatch.mahogany { background: var(--mahogany); }
-.swatch.carbon { background: var(--carbon); }
-.panel.cloud .swatch.cloud { background: var(--canvas); }
 
 .site-footer .panel.mahogany .mark { color: var(--flame); }
 .site-footer .panel.mahogany .contact .label::after { background: var(--flame); }
